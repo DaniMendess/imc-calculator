@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+    /*isso referencia o tamanho da fonte por pixels*/
+
+    /* cores*/
+    --tt-heading: #0C3440;
+    --tt-label: #00453A;
+    --border-input: #02799D;
+    --tt-input1: #212529;
+    --bg-input: #DCE2E9;
+    --tt-input2: rgba(73, 80, 87, 0.5);
+    --border-input2: rgba(73, 80, 87, 0.3);
+    --bg-button: #02799D;
+    --tt-button: white;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #040924;
+    font-size: 1.6rem;
+
+}
+
+.container{
+
+    height: 100vh; /*tamanho maximo da tela*/
+    display: grid; /* container pega a altura maxima*/
+    place-items: center; /*alinhar item ao centro*/
+   
+}
+
+.card{
+    padding: 4.8rem 6.4rem 6.4rem;
+    background: white;
+    max-width: 42.8rem;
+    border-radius: .6rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tittle{
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: var(--tt-heading);
+    margin-bottom: 3.2rem;
+}
+
+
+form label {
+    color: var(--tt-label);
+    line-height: 1.8rem;
+    margin-bottom: .8rem;
+    display: block;
+}
+
+form input{
+    width: 100%;
+    border-radius: .4rem;
+    padding: 1.6rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-input2);
+}
+
+/*cor do placeholder*/
+input::placeholder{
+    color: var(--tt-input2);
+}
+
+/*borda no input quando clica*/
+form input:focus{
+    outline: 2px solid var(--border-input);
+}
+
+/*pegar a classe anterior a segunda oção*/
+.input-wraper + .input-wraper{
+    margin-top: 1.6rem;
+}
+
+form button, .btn-style{
+    width: 100%;
+    margin-top: 3.2rem;
+    padding: 1.6rem;
+    background: var(--bg-button);
+    border: none;
+    border-radius: .4rem;
+    color: var(--tt-button);
+    font-weight: bold;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+/* para manipular o DOM, obs: visite a classe no HTML para saber melhor*/
+.modal-wraper.open{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* criação do modal, alinhamento ao centro*/
+.modal-wraper{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    /*podemos usar inset como 0 para todas propriedades de baixo*/
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: grid;
+    place-content: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal{
+    position: relative;
+}
+
+
+.modal button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    cursor: pointer;
+}
+/* para aparecer a mensagen de erro*/
+.alert-error.open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.alert-error{
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    background: red;
+    padding: .8rem;
+    color: white;
+    font-weight: bold;
+    transform: translateY(-40px);
+    transition: transform 1s;
+}
+
+
+
